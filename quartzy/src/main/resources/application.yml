@@ -1,0 +1,38 @@
+
+# 服务端口号, JspServlet 支持jsp并打成war包
+server:
+  port: 8086
+  jsp-servlet:
+    class-name: org.apache.jasper.servlet.JspServlet
+# quartz
+quartz:
+  enabled: true
+
+#DateSource
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://rdsj5720qg37z18a8igmpublic.mysql.rds.aliyuncs.com:3306/mecv_bak
+    username: mecv
+    password: mecvDB99
+    driver-class-name: com.mysql.jdbc.Driver
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    validationQuery: SELECT 1
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    filters: stat
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+  # mvc
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+  resources:
+    static-locations: classpath:/static/
+
